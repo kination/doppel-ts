@@ -15,6 +15,7 @@ export function runInterceptor(configFilePath: string) {
   // }
 
   const map = dataMapper(config.apis)
+  console.log(map)
 
   /*
   const server = new Pretender(function() {

@@ -14,6 +14,9 @@ const randStringGen = {
   'name': () => {
     return faker.name.fullName()
   },
+  'phoneNumber': () => {
+    return faker.phone.number()
+  },
   'unknown': () => {
     return faker.datatype.string()
   }
@@ -29,6 +32,8 @@ export default function (dataType: string, dataName: string) {
       return randStringGen.uuid()
     case 'name':
       return randStringGen.name()
+    case 'phoneNumber':
+      return randStringGen.phoneNumber()
     default:
       return randStringGen.unknown()
   }
