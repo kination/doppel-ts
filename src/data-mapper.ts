@@ -1,7 +1,4 @@
-import { faker } from '@faker-js/faker'
-
-import { ConfigParser } from './configParser'
-import randGen from './fakeDataGen'
+import fakeGenerator from './fake-data-generator'
 import { ApiListItem } from './types'
 
 interface ObjectParamFormat {
@@ -26,11 +23,11 @@ function formatObject(properties: { [key: string]: any }): { [key: string]: any 
     const dataType = data['type']
 
     if ('random' in data['value']) {      
-      apiBody[key] = randGen(dataType, data['value']['random'])
+      apiBody[key] = fakeGenerator(dataType, data['value']['random'])
     } else if ('fixed' in data['value']) {
       apiBody[key] = data['value']['fixed']
     } else {
-      apiBody[key] = randGen(dataType, 'unknown')
+      apiBody[key] = fakeGenerator(dataType, 'unknown')
     }
   })
 

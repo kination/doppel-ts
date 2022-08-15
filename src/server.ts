@@ -1,6 +1,6 @@
 import Pretender from 'pretender'
-import { ConfigParser } from './configParser'
-import dataMapper from './dataMapper'
+import { ConfigParser } from './config-parser'
+import dataMapper from './data-mapper'
 
 
 function getMappedApi() {
