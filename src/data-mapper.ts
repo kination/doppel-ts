@@ -8,6 +8,7 @@ interface ObjectParamFormat {
     [key: string]: any
   }
   items?: []
+  size?: number
 }
 
 function formatObject(properties: { [key: string]: any }): { [key: string]: any } {
@@ -29,10 +30,10 @@ function formatObject(properties: { [key: string]: any }): { [key: string]: any 
   return apiBody
 }
 
-function formatList(properties: { [key: string]: any }): any[] {
+function formatList(properties: { [key: string]: any }, size: number): any[] {
   const apiBody: any[] = []
   const array = [1, 2, 3]
-  for (const i of Array(10).keys()) {
+  for (const i of Array(size).keys()) {
     if (properties.type === 'object') apiBody.push(formatObject(properties.properties))
   }
   
@@ -47,7 +48,7 @@ function appendRandomData(raw: ObjectParamFormat) {
       res = formatObject(raw.properties!)
       break
     case 'array':
-      res = formatList(raw.items!)
+      res = formatList(raw.items!, raw.size!)
       break
     default:
       break
