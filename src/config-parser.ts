@@ -1,14 +1,11 @@
-import { load } from 'js-yaml'
-import { readFileSync } from 'fs'
-
 import { ApiListItem, ConfigFormat } from './types'
 
 export class ConfigParser {
   private env: string
   private apiList: ApiListItem
 
-  constructor(configPath: string) {
-    const config = load(readFileSync(configPath, 'utf8')) as ConfigFormat
+  constructor(configData: Object) {
+    const config = configData as ConfigFormat
     this.env = config.env
     this.apiList = config.api
   }

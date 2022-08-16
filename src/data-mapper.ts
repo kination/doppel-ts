@@ -1,6 +1,7 @@
 import fakeGenerator from './fake-data-generator'
 import { ApiListItem } from './types'
 
+
 interface ObjectParamFormat {
   type: string
   properties?: {
@@ -10,15 +11,9 @@ interface ObjectParamFormat {
 }
 
 function formatObject(properties: { [key: string]: any }): { [key: string]: any } {
-
-  const apiBody: {
-    [key: string]: any
-  } = {}
-
-  console.log(properties)
-
+  const apiBody: { [key: string]: any } = {}
+  
   Object.keys(properties).forEach((key) => {
-
     const data = properties[key]
     const dataType = data['type']
 
@@ -36,7 +31,8 @@ function formatObject(properties: { [key: string]: any }): { [key: string]: any 
 
 function formatList(properties: { [key: string]: any }): any[] {
   const apiBody: any[] = []
-  for (const i of Array(7).keys()) {
+  const array = [1, 2, 3]
+  for (const i of Array(10).keys()) {
     if (properties.type === 'object') apiBody.push(formatObject(properties.properties))
   }
   

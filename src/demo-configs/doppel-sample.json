@@ -1,0 +1,48 @@
+{
+    "env": "dev",
+    "api": {
+        "/hello/doppel": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "value": {
+                        "random": "uuid"
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "value": {
+                        "fixed": "test string"
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "value": {
+                        "random": "name"
+                    }
+                }
+            }
+        },
+        "/world": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "value": {
+                            "random": "name"
+                        }
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "value": {
+                            "random": "phoneNumber"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
