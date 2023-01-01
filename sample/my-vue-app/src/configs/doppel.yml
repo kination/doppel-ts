@@ -1,0 +1,28 @@
+
+api:
+  hello:
+    form: "object"
+    properties:
+      id:
+        form: "string"
+        value:
+          random: "uuid"
+      name:
+        form: "string"
+        value:
+          random: "name"
+  world:
+    form: "array"
+    items:
+      form: "object"
+      properties:
+        name:
+          form: "string"
+          value:
+            random: "name"
+        phoneNumber:
+          form: "string"
+          value:
+            random: "phoneNumber"
+
+        

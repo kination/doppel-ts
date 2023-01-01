@@ -1,0 +1,88 @@
+{
+    "env": "dev",
+    "api": {
+        "/hello/doppel": {
+            "GET": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "value": {
+                            "random": "uuid"
+                        }
+                    },
+                    "type": {
+                        "type": "string",
+                        "value": {
+                            "fixed": "test string"
+                        }
+                    },
+                    "name": {
+                        "type": "string",
+                        "value": {
+                            "random": "name"
+                        }
+                    }
+                }
+            }
+        },
+        "/world": {
+            "GET": {
+                "type": "array",
+                "size": 10,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string",
+                            "value": {
+                                "random": "name"
+                            }
+                        },
+                        "phoneNumber": {
+                            "type": "string",
+                            "value": {
+                                "random": "phoneNumber"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/job": {
+            "GET": {
+                "type": "array",
+                "size": 10,
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "title": {
+                            "type": "string",
+                            "value": {
+                                "random": "name"
+                            }
+                        },
+                        "company": {
+                            "type": "string",
+                            "value": {
+                                "random": "name"
+                            }
+                        },
+                        "description": {
+                            "type": "string",
+                            "value": {
+                                "random": "unknown"
+                            }
+                        },
+                        "icon": {
+                            "type": "string",
+                            "value": {
+                                "fixed": "sample-link"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
