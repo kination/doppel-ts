@@ -1,6 +1,9 @@
 import fakeGenerator from './fake-data-generator'
 import { ApiListItem } from './types'
 
+interface RequestParamFormat {
+  [key: string]: ObjectParamFormat
+}
 
 interface ObjectParamFormat {
   type: string
@@ -59,10 +62,18 @@ function appendRandomData(raw: ObjectParamFormat) {
 
 export default function(rawApi: ApiListItem) {
   const data: {
-    [key: string]: any
+    [key: string] : any
   } = {}
-  rawApi.apiList.forEach((val: ObjectParamFormat, key) => {
-    data[key] = appendRandomData(val)
+
+  rawApi.apiList.forEach((val: RequestParamFormat, key) => {
+    Object.entries(val).forEach(([k, v]) => {
+      const randomData = appendRandomData(v)
+      
+      if (data[key] === undefined) data[key] = {}
+
+      data[key][k] = randomData
+    })
+    
   });
 
   return data
